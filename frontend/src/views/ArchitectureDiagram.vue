@@ -50,7 +50,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { DataAnalysis, Link, FullScreen, Expand, CloseBold } from '@element-plus/icons-vue'
-import { ElMessage } from 'el-plus'
+import { ElMessage } from 'element-plus'
 
 const isWebFullScreen = ref(false)
 

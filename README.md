@@ -6,26 +6,19 @@
 
 ```
 one-writer/
-├── frontend/              # Vue 3 前端应用
+├── frontend/              # Vue 3 前端应用 (核心代码)
 │   ├── src/
+│   │   ├── utils/        # 工具函数 (含 PlantUML 编码逻辑)
 │   │   ├── views/        # 页面组件
 │   │   ├── router/       # 路由配置
 │   │   ├── App.vue       # 根组件
-│   │   ├── main.ts       # 入口文件
-│   │   └── style.css     # 全局样式
+│   │   └── main.ts       # 入口文件
 │   ├── public/           # 静态资源
 │   ├── package.json      # 前端依赖
 │   └── vite.config.ts    # Vite配置
 │
-├── backend/              # Flask 后端服务
-│   ├── api.py           # API服务入口
-│   ├── requirements.txt  # Python依赖
-│   ├── generated_diagrams/  # 生成的图表存储
-│   └── README.md        # 后端文档
-│
-├── uml.py               # PlantUML工具脚本
-├── 功能模块.txt          # 功能需求文档
-└── 用例图使用说明.md     # 使用说明
+├── .github/workflows/     # CI/CD 自动化部署配置
+└── README.md              # 项目文档
 ```
 
 ## 🚀 快速开始
@@ -33,25 +26,11 @@ one-writer/
 ### 前置要求
 
 - Node.js 18+
-- Python 3.8+
 - pnpm (前端包管理器)
-- uv (Python包管理器，推荐)
 
-### 1. 启动后端服务
+### 1. 启动服务
 
-```bash
-cd backend
-
-# 安装依赖
-uv pip install -r requirements.txt --system
-
-# 启动服务
-python api.py
-```
-
-后端服务将在 **http://localhost:8000** 启动
-
-### 2. 启动前端服务
+本项目已实现**纯前端化**，不再需要后端服务。
 
 ```bash
 cd frontend
@@ -63,13 +42,13 @@ pnpm install
 pnpm dev
 ```
 
-前端服务将在 **http://localhost:9000** 启动
+前端服务将在 **http://localhost:9000** 启动。
 
 ## 🎯 功能特性
 
 ### 📊 图表生成工具
 - **功能模块图** - 嵌入校园小助手在线工具
-- **用例图生成** - 调用本地PlantUML服务生成UML用例图
+- **用例图生成** - 基于 PlantUML 官方 API，前端直接生成 (无需本地后端)
 - **架构图生成** - 嵌入飞书文档工具
 - **数据库E-R图** - 嵌入飞书E-R图工具
 - **其他图表** - Mermaid Chart在线编辑器
@@ -91,29 +70,22 @@ pnpm dev
 - **UI框架**: Element Plus
 - **路由**: Vue Router 4
 - **包管理**: pnpm
-
-### 后端
-- **框架**: Flask
-- **图表生成**: PlantUML
-- **跨域支持**: Flask-CORS
-- **包管理**: uv
+- **图表处理**: PlantUML Encoder (前端编码)
 
 ## 📋 开发规范
 
 ### 端口配置
 - 前端服务端口：**9000**
-- 后端API端口：**8000**
+
+### 部署规范
+- 本项目支持 **GitHub Pages** 静态托管
+- 已配置 GitHub Actions 自动化部署流水线
 
 ### 前端规范
 - 使用 pnpm 作为包管理器
 - 使用 Element Plus UI框架
 - 禁止使用紫色作为主题色
 - 使用水平导航菜单
-
-### 后端规范
-- 使用 uv 进行项目管理
-- API端口固定为 8000
-- 生成的文件保存在 `generated_diagrams/` 目录
 
 ## 📖 使用文档
 
