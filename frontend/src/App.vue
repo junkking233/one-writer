@@ -30,7 +30,8 @@
                 <span>图表生成</span>
               </template>
               <el-menu-item index="/diagram-generator">功能模块图</el-menu-item>
-              <el-menu-item index="/usecase-diagram">用例图</el-menu-item>
+              <el-menu-item index="/usecase-diagram">用例图文档</el-menu-item>
+              <el-menu-item index="/usecase-diagram-generator">用例图生成</el-menu-item>
               <el-menu-item index="/architecture-diagram">架构图</el-menu-item>
               <el-menu-item index="/er-diagram">数据库E-R图</el-menu-item>
               <el-menu-item index="/other-diagrams">其他图表</el-menu-item>

@@ -1,7 +1,7 @@
 1、功能模块图生成
 嵌入 https://tools.anqstar.com/tools/structure?storage=local
 2、用例图生成
-输入 用例图内容，调用uml.py 生成用例图，用例图可以导出
+嵌入 https://ai.feishu.cn/docx/Eb3Qdqh2MoIfNhxn4pacyxDhnsh?from=from_copylink
 3、架构图生成
 嵌入 https://ai.feishu.cn/docx/GYKYdTzvwooDF2xQ1y3cbfzDned?from=from_copylink
 4、数据库E-R图生成

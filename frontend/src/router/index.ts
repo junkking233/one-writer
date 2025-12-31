@@ -18,6 +18,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/UsecaseDiagram.vue')
     },
     {
+        path: '/usecase-diagram-generator',
+        name: 'UsecaseDiagramGenerator',
+        component: () => import('../views/UsecaseDiagramGenerator.vue')
+    },
+    {
         path: '/architecture-diagram',
         name: 'ArchitectureDiagram',
         component: () => import('../views/ArchitectureDiagram.vue')
@@ -50,7 +55,7 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes
 })
 

@@ -114,6 +114,14 @@ const features = [
     icon: TrendCharts,
     gradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
     color: '#f59e0b',
+    path: '/usecase-diagram-generator'
+  },
+  {
+    title: '用例图文档',
+    desc: '查看系统用例图设计文档与规范（Feishu集成）。',
+    icon: TrendCharts,
+    gradient: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+    color: '#f97316',
     path: '/usecase-diagram'
   },
   {
