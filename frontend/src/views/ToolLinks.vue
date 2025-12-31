@@ -101,33 +101,66 @@ const searchQuery = ref('')
 const activeCategory = ref('计算机工具')
 
 const tools = [
+  // 计算机工具
   { title: "draw.io", url: "https://app.diagrams.net/?src=about", category: "计算机工具" },
   { title: "Mermaid 转 draw.io", url: "https://www.min2k.com/tools/mermaid/", category: "计算机工具" },
-  { title: "Excalidraw", url: "https://excalidraw.com/", category: "计算机工具" },
-  { title: "Kroki (代码转图)", url: "https://kroki.io/", category: "计算机工具" },
-  { title: "GitHub", url: "https://github.com/", category: "计算机工具" },
-  { title: "DeepL 翻译", url: "https://www.deepl.com/translator", category: "写作工具" },
-  { title: "Notion", url: "https://www.notion.so/", category: "写作工具" },
+  { title: "Markdown转 Excel", url: "https://tableconvert.com/zh-cn/markdown-to-excel", category: "计算机工具" },
+  { title: "PNG转ICO", url: "https://www.aconvert.com/cn/icon/png-to-ico/", category: "计算机工具" },
+  { title: "HTML转PNG", url: "https://cloudconvert.com/html-to-png", category: "计算机工具" },
+  { title: "PlantUML", url: "https://plantuml.com/zh/", category: "计算机工具" },
+  { title: "校园小助手（三线表 E-R图）", url: "https://tools.anqstar.com/tools/structure?storage=local", category: "计算机工具" },
+  { title: "GenSpark超级智能体", url: "https://www.genspark.ai/", category: "计算机工具" },
+  
+  // 写作工具
+  { title: "meta材料搜索", url: "https://metaso.cn/", category: "写作工具" },
   { title: "Monica AI", url: "https://monica.im/home", category: "写作工具" },
-  { title: "Claude AI", url: "https://claude.ai/chat", category: "写作工具" },
-  { title: "写作狗", url: "http://newpaper.modifypaper.com/", category: "降重工具" },
-  { title: "香蕉降重", url: "https://banana.paperjai.com/", category: "降重工具" },
-  { title: "SmallPDF", url: "https://smallpdf.com/cn", category: "文档工具" },
-  { title: "I Love PDF", url: "https://www.ilovepdf.com/", category: "文档工具" },
-  { title: "PaperYY (免费制)", url: "https://www.paperyy.com/", category: "查重工具" },
-  { title: "东方财富", url: "https://www.eastmoney.com/", category: "财务数据搜集" },
-  { title: "雪球", url: "https://xueqiu.com/", category: "财务数据搜集" },
-  { title: "Google Scholar", url: "https://scholar.google.com/", category: "查找文献" },
-  { title: "巨人学术", url: "https://xs.typicalgame.com/", category: "查找文献" }
+  { title: "claude AI", url: "https://claude.ai/chat", category: "写作工具" },
+  
+  // 降重工具
+  { title: "写作狗（淘宝买卡密）", url: "http://newpaper.modifypaper.com/", category: "降重工具" },
+  { title: "香蕉降重（淘宝买卡密）", url: "https://banana.paperjai.com/", category: "降重工具" },
+  
+  // 文档工具
+  { title: "SimpleTex 公式工具", url: "https://simpletex.cn/", category: "文档工具" },
+  { title: "比格设计", url: "https://bigesj.com/", category: "文档工具" },
+  
+  // 查重工具
+  { title: "PaperPass 查重", url: "https://www.paperpass.com/", category: "查重工具" },
+  { title: "万方 查重", url: "https://cx.wanfangdata.com.cn/#/", category: "查重工具" },
+  { title: "维普 查重", url: "https://vpcs.fanyu.com/#firstSlide", category: "查重工具" },
+  { title: "格子达 查重", url: "https://www.gezida.com/fileUploadCheck/init.do?control_type=1", category: "查重工具" },
+  { title: "知网 查重", url: "https://cx.cnki.net/main.html#/detectionResult", category: "查重工具" },
+  
+  // 财务数据搜集
+  { title: "雪球 财务数据", url: "https://xueqiu.com/S/BILI?md5__1038=n4jxnDBDyDcD2DRx05DKETxIoLGQF4eGQeH4D", category: "财务数据搜集" },
+  { title: "新浪财经 财务数据", url: "https://finance.sina.com.cn/realstock/company/sz002594/nc.shtml", category: "财务数据搜集" },
+  { title: "台股票查询-TWSE 臺灣證券交易所", url: "https://www.twse.com.tw/zh/index.html", category: "财务数据搜集" },
+  { title: "台股票查询-公開資訊觀測站", url: "https://mops.twse.com.tw/mops/web/t164sb04", category: "财务数据搜集" },
+  
+  // 数据分析
+  { title: "199IT", url: "https://www.199it.com/", category: "数据分析" },
+  { title: "Kaggle 数据集", url: "https://www.kaggle.com/datasets?topic=trendingDataset", category: "数据分析" },
+  { title: "艾瑞咨询", url: "https://www.iresearch.com.cn/", category: "数据分析" },
+  { title: "国家数据", url: "https://data.stats.gov.cn/easyquery.htm?cn=E0103", category: "数据分析" },
+  { title: "在线SPSS分析软件", url: "https://spssau.com/addmoney.html", category: "数据分析" },
+  
+  // 查找文献
+  { title: "Citely找文献源", url: "https://citely.ai/zh", category: "查找文献" },
+  { title: "知网官网", url: "https://www.cnki.net/", category: "查找文献" },
+  { title: "Google 学术官网搜索", url: "https://scholar.google.com.hk/?hl=zh-CN", category: "查找文献" },
+  { title: "巨人学术搜索", url: "https://xs.typicalgame.com/", category: "查找文献" },
+  { title: "书童图书馆（付费）", url: "https://3.shutong2.com/zhongwenku/", category: "查找文献" },
+  { title: "知网文献下载（bimu查重）", url: "https://a.bimuchachong.com/#/", category: "查找文献" },
+  { title: "知网文献下载（萝卜图书馆）", url: "http://lib.luobolibrary.cn/#/login", category: "查找文献" }
 ]
 
-const categories = ['计算机工具', '写作工具', '降重工具', '文档工具', '查重工具', '财务数据搜集', '查找文献']
+const categories = ['计算机工具', '写作工具', '降重工具', '文档工具', '查重工具', '财务数据搜集', '数据分析', '查找文献']
 
 const stats = [
-  { value: '20+', label: '已收录网站', icon: Link },
-  { value: '7+', label: '细分分类', icon: Monitor },
+  { value: '40+', label: '已收录网站', icon: Link },
+  { value: '8+', label: '细分分类', icon: Monitor },
   { value: '24/7', label: '可用性监控', icon: Checked },
-  { value: '1.2k', label: '月度访问量', icon: Histogram }
+  { value: '1.5k', label: '月度访问量', icon: Histogram }
 ]
 
 const gradients = [
@@ -136,7 +169,9 @@ const gradients = [
   'linear-gradient(135deg, #10b981 0%, #059669 100%)',
   'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
   'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
-  'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)'
+  'linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)',
+  'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+  'linear-gradient(135deg, #f43f5e 0%, #e11d48 100%)'
 ]
 
 const filteredTools = (category: string) => {
@@ -158,6 +193,7 @@ const getCategoryIcon = (category: string) => {
     '文档工具': Document,
     '查重工具': Checked,
     '财务数据搜集': Coin,
+    '数据分析': DataAnalysis,
     '查找文献': Reading
   }
   return icons[category] || Link

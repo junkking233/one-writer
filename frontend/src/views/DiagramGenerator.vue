@@ -27,8 +27,12 @@
           <span class="dot yellow"></span>
           <span class="dot green"></span>
         </div>
-        <div class="window-address">
-          anqstar.com/tools/structure
+        <div class="window-address-bar">
+          <input 
+            v-model="currentUrl" 
+            class="address-input" 
+            placeholder="请输入文档地址 (如: https://...)"
+          />
         </div>
         <div class="window-actions">
           <el-icon @click="toggleWebFullScreen" class="exit-btn" v-if="isWebFullScreen"><CloseBold /></el-icon>
@@ -37,7 +41,7 @@
       </div>
       <div class="iframe-wrapper">
         <iframe
-          src="https://tools.anqstar.com/tools/structure?storage=local"
+          :src="currentUrl"
           frameborder="0"
           class="tool-iframe"
           title="功能模块图生成工具"
@@ -48,14 +52,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { PieChart, Link, FullScreen, Expand, CloseBold } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 
 const isWebFullScreen = ref(false)
+const defaultUrl = 'https://tools.anqstar.com/tools/structure?storage=local'
+const currentUrl = ref(defaultUrl)
+
+const STORAGE_KEY = 'one-writer-function-diagram-url'
+
+onMounted(() => {
+  const savedUrl = localStorage.getItem(STORAGE_KEY)
+  if (savedUrl) {
+    currentUrl.value = savedUrl
+  }
+})
+
+watch(currentUrl, (newValue) => {
+  localStorage.setItem(STORAGE_KEY, newValue)
+})
 
 const openInNewTab = () => {
-  window.open('https://tools.anqstar.com/tools/structure?storage=local', '_blank')
+  window.open(currentUrl.value, '_blank')
 }
 
 const toggleWebFullScreen = () => {
@@ -192,17 +211,32 @@ const toggleWebFullScreen = () => {
 .dot.yellow { background: #ffbd2e; }
 .dot.green { background: #27c93f; }
 
-.window-address {
+.window-address-bar {
   flex: 1;
   background: white;
   height: 28px;
   border-radius: 6px;
-  font-size: 12px;
-  color: var(--text-tertiary);
   display: flex;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 4px;
   border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.window-address-bar:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.address-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  background: transparent;
+  padding: 0 8px;
+  font-family: inherit;
 }
 
 .window-actions {
