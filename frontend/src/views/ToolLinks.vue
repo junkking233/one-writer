@@ -125,7 +125,7 @@ const tools = [
   { title: "比格设计", url: "https://bigesj.com/", category: "文档工具" },
   
   // 查重工具
-  { title: "PaperPass 查重", url: "https://www.paperpass.com/", category: "查重工具" },
+  { title: "PaperPass", url: "https://www.paperpass.com/", category: "查重工具" },
   { title: "万方 查重", url: "https://cx.wanfangdata.com.cn/#/", category: "查重工具" },
   { title: "维普 查重", url: "https://vpcs.fanyu.com/#firstSlide", category: "查重工具" },
   { title: "格子达 查重", url: "https://www.gezida.com/fileUploadCheck/init.do?control_type=1", category: "查重工具" },
@@ -147,21 +147,12 @@ const tools = [
   // 查找文献
   { title: "Citely找文献源", url: "https://citely.ai/zh", category: "查找文献" },
   { title: "知网官网", url: "https://www.cnki.net/", category: "查找文献" },
-  { title: "Google 学术官网搜索", url: "https://scholar.google.com.hk/?hl=zh-CN", category: "查找文献" },
-  { title: "巨人学术搜索", url: "https://xs.typicalgame.com/", category: "查找文献" },
-  { title: "书童图书馆（付费）", url: "https://3.shutong2.com/zhongwenku/", category: "查找文献" },
-  { title: "知网文献下载（bimu查重）", url: "https://a.bimuchachong.com/#/", category: "查找文献" },
-  { title: "知网文献下载（萝卜图书馆）", url: "http://lib.luobolibrary.cn/#/login", category: "查找文献" }
+  { title: "Google 学术（官网）", url: "https://scholar.google.com.hk/?hl=zh-CN", category: "查找文献" },
+  { title: "巨人学术搜索（英文）", url: "https://xs.typicalgame.com/", category: "查找文献" },
+  { title: "学术图书馆（中文）", url: "http://lib.luobolibrary.cn/#/", category: "查找文献" }
 ]
 
 const categories = ['计算机工具', '写作工具', '降重工具', '文档工具', '查重工具', '财务数据搜集', '数据分析', '查找文献']
-
-const stats = [
-  { value: '40+', label: '已收录网站', icon: Link },
-  { value: '8+', label: '细分分类', icon: Monitor },
-  { value: '24/7', label: '可用性监控', icon: Checked },
-  { value: '1.5k', label: '月度访问量', icon: Histogram }
-]
 
 const gradients = [
   'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
