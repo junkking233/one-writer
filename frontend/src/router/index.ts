@@ -13,29 +13,14 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/DiagramGenerator.vue')
     },
     {
-        path: '/usecase-diagram',
-        name: 'UsecaseDiagram',
-        component: () => import('../views/UsecaseDiagram.vue')
-    },
-    {
         path: '/usecase-diagram-generator',
         name: 'UsecaseDiagramGenerator',
         component: () => import('../views/UsecaseDiagramGenerator.vue')
     },
     {
-        path: '/architecture-diagram',
-        name: 'ArchitectureDiagram',
-        component: () => import('../views/ArchitectureDiagram.vue')
-    },
-    {
-        path: '/er-diagram',
-        name: 'ERDiagram',
-        component: () => import('../views/ERDiagram.vue')
-    },
-    {
-        path: '/other-diagrams',
-        name: 'OtherDiagrams',
-        component: () => import('../views/OtherDiagrams.vue')
+        path: '/image-tools/:toolKey',
+        name: 'ImageToolWorkspace',
+        component: () => import('../views/ImageToolWorkspace.vue')
     },
     {
         path: '/reference-processor',

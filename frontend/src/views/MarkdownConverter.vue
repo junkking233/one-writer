@@ -2,7 +2,7 @@
   <div class="markdown-converter-page animate-fade-in">
     <div class="page-header">
       <div class="title-section">
-        <h1 class="page-title gradient-text-premium indigo">
+        <h1 class="page-title gradient-text-premium coral">
           <el-icon class="title-icon"><DocumentCopy /></el-icon>
           Markdown 智能转 Word
         </h1>
@@ -109,7 +109,7 @@
             type="primary"
             size="large"
             @click="exportAsWord"
-            class="action-btn-primary indigo-bg"
+            class="action-btn-primary coral-bg"
             :disabled="!markdownContent"
           >
             <el-icon><DocumentCopy /></el-icon> 导出为 Word
@@ -283,28 +283,35 @@ const downloadFile = (blob: Blob, name: string) => {
   margin: 0 auto;
 }
 
-.page-header { margin-bottom: 40px; }
+.page-header {
+  margin-bottom: 28px;
+  padding: 22px 24px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-sm);
+}
 
-.indigo {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+.coral {
+  background: var(--gradient-coral);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.indigo-bg {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4) !important;
+.el-button.action-btn-primary.coral-bg {
+  background: var(--gradient-coral);
+  box-shadow: 0 12px 26px rgba(255, 92, 72, 0.22);
 }
 
 .page-title {
-  font-size: 32px;
+  font-size: 30px;
   margin: 0 0 8px 0;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.title-icon { font-size: 40px; color: #6366f1; }
+.title-icon { font-size: 40px; color: var(--danger-color); }
 
 .page-subtitle {
   font-size: 16px;
@@ -329,7 +336,7 @@ const downloadFile = (blob: Blob, name: string) => {
 .card-title-premium {
   font-size: 18px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--color-text-strong);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -337,12 +344,12 @@ const downloadFile = (blob: Blob, name: string) => {
 
 .premium-textarea :deep(.el-textarea__inner) {
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 16px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   line-height: 1.6;
-  background: #f8fafc;
+  background: rgba(247, 255, 252, 0.82);
 }
 
 .template-group { margin-top: 24px; }
@@ -356,34 +363,34 @@ const downloadFile = (blob: Blob, name: string) => {
 
 .template-wrapper { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.template-btn { border-radius: 10px; font-weight: 600; }
+.template-btn { border-radius: var(--radius-md); font-weight: 600; }
 
 .premium-radio :deep(.el-radio-button__inner) {
-  border-radius: 8px !important;
+  border-radius: var(--radius-md);
   margin-left: 4px;
-  border: 1px solid var(--border-color) !important;
+  border: 1px solid var(--border-color);
 }
 
 .preview-canvas {
   min-height: 520px;
-  border-radius: 16px;
-  background: white;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.82);
   padding: 32px;
   border: 1px solid var(--border-color);
   overflow-y: auto;
 }
 
-.markdown-body { line-height: 1.8; color: var(--text-primary); }
+.markdown-body { line-height: 1.8; color: var(--color-text); }
 
-.markdown-body :deep(h1) { font-size: 28px; margin-bottom: 16px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+.markdown-body :deep(h1) { font-size: 28px; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
 
 .markdown-body :deep(h2) { font-size: 22px; margin: 20px 0 12px; }
 
 .markdown-body :deep(p) { margin: 12px 0; }
 
 .html-viewer :deep(.el-textarea__inner) {
-  background: #1e293b;
-  color: #94a3b8;
+  background: var(--color-text-strong);
+  color: rgba(247, 255, 252, 0.82);
   font-family: monospace;
 }
 
@@ -397,9 +404,9 @@ const downloadFile = (blob: Blob, name: string) => {
 
 .export-actions { display: flex; gap: 16px; }
 
-.action-btn-primary { border-radius: 12px; font-weight: 700; height: 50px; padding: 0 28px; transition: all var(--transition-base); }
+.action-btn-primary { border-radius: var(--radius-md); font-weight: 700; height: 50px; padding: 0 28px; transition: all var(--transition-base); }
 
-.action-btn { border-radius: 12px; font-weight: 600; height: 50px; padding: 0 24px; }
+.action-btn { border-radius: var(--radius-md); font-weight: 600; height: 50px; padding: 0 24px; }
 
 .syntax-guide-section { padding: 32px; }
 
@@ -407,13 +414,13 @@ const downloadFile = (blob: Blob, name: string) => {
 
 .guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px; }
 
-.syntax-box pre { background: #0f172a; color: #f8fafc; padding: 16px; border-radius: 12px; }
+.syntax-box pre { background: var(--color-text-strong); color: #f8fafc; padding: 16px; border-radius: var(--radius-md); }
 
-.output-content { background: #f8fafc; border: 1px solid var(--border-color); padding: 16px; border-radius: 12px; height: 100%; }
+.output-content { background: rgba(247, 255, 252, 0.82); border: 1px solid var(--border-color); padding: 16px; border-radius: var(--radius-md); height: 100%; }
 
 .label { font-size: 12px; font-weight: 800; color: var(--text-tertiary); margin-bottom: 8px; display: block; }
 
-.round-btn { border-radius: 10px; font-weight: 600; }
+.round-btn { border-radius: var(--radius-md); font-weight: 600; }
 
 @media (max-width: 1200px) {
   .content-grid { grid-template-columns: 1fr; }

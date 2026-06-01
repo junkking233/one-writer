@@ -54,7 +54,6 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { FolderOpened, Link, FullScreen, Expand, CloseBold } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
 
 const isWebFullScreen = ref(false)
 const defaultUrl = 'https://ai.feishu.cn/docx/WWSQdrwTBoTW7nxguIScL39NnMe'
@@ -267,4 +266,3 @@ const toggleWebFullScreen = () => {
   }
 }
 </style>
-

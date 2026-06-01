@@ -54,7 +54,6 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { PieChart, Link, FullScreen, Expand, CloseBold } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
 
 const isWebFullScreen = ref(false)
 const defaultUrl = 'https://tools.anqstar.com/tools/structure?storage=local'
@@ -100,7 +99,13 @@ const toggleWebFullScreen = () => {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 24px;
   margin-bottom: 24px;
+  padding: 22px 24px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-sm);
 }
 
 .title-section {
@@ -110,7 +115,7 @@ const toggleWebFullScreen = () => {
 }
 
 .page-title {
-  font-size: 32px;
+  font-size: 30px;
   margin: 0;
   display: flex;
   align-items: center;
@@ -137,7 +142,7 @@ const toggleWebFullScreen = () => {
 .action-btn {
   height: 44px;
   padding: 0 20px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-weight: 600;
   border: 1px solid var(--border-color);
   transition: all var(--transition-fast);
@@ -146,7 +151,7 @@ const toggleWebFullScreen = () => {
 .action-btn-primary {
   height: 44px;
   padding: 0 20px;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-weight: 600;
   background: var(--gradient-primary);
   border: none;
@@ -157,18 +162,18 @@ const toggleWebFullScreen = () => {
 
 .action-btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.4);
+  box-shadow: var(--shadow-glow);
 }
 
 .window-container {
   flex: 1;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-xl);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: white;
+  border: 1px solid rgba(17, 132, 116, 0.18);
+  background: rgba(255, 255, 255, 0.9);
   min-height: calc(100vh - 220px);
   margin-bottom: 40px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -188,7 +193,7 @@ const toggleWebFullScreen = () => {
 
 .window-header {
   height: 44px;
-  background: rgba(248, 250, 252, 0.8);
+  background: rgba(236, 248, 242, 0.82);
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -207,15 +212,15 @@ const toggleWebFullScreen = () => {
   border-radius: 50%;
 }
 
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
+.dot.red { background: #FF5C48; }
+.dot.yellow { background: #FFD166; }
+.dot.green { background: #10BFA3; }
 
 .window-address-bar {
   flex: 1;
   background: white;
   height: 28px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   padding: 0 4px;
@@ -224,8 +229,8 @@ const toggleWebFullScreen = () => {
 }
 
 .window-address-bar:focus-within {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(16, 191, 163, 0.1);
 }
 
 .address-input {
@@ -250,7 +255,7 @@ const toggleWebFullScreen = () => {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background: white;
+  background: #ffffff;
 }
 
 .tool-iframe {
@@ -267,4 +272,3 @@ const toggleWebFullScreen = () => {
   }
 }
 </style>
-

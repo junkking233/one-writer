@@ -54,7 +54,6 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { DataAnalysis, Link, FullScreen, Expand, CloseBold } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
 
 const isWebFullScreen = ref(false)
 const defaultUrl = 'https://ai.feishu.cn/docx/GYKYdTzvwooDF2xQ1y3cbfzDned?from=from_copylink'
@@ -110,13 +109,13 @@ const toggleWebFullScreen = () => {
 }
 
 .tertiary {
-  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  background: var(--gradient-sky);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.tertiary-bg {
-  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
+.el-button.tertiary-bg {
+  background: var(--gradient-sky);
 }
 
 .page-title {
@@ -276,4 +275,3 @@ const toggleWebFullScreen = () => {
   }
 }
 </style>
-

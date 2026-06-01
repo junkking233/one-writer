@@ -6,45 +6,66 @@
         <div class="header-content">
           <div class="logo-section">
             <div class="logo-wrapper">
-              <el-icon :size="24" class="logo-icon">
-                <Edit />
-              </el-icon>
+              <img src="/favicon.png" alt="OneWriter" class="brand-logo" />
             </div>
-            <h1 class="app-title gradient-text-premium">OneWriter</h1>
+            <h1 class="app-title">OneWriter</h1>
           </div>
           
           <el-menu
             :default-active="activeMenu"
             mode="horizontal"
+            menu-trigger="click"
             :ellipsis="false"
             @select="handleMenuSelect"
             class="header-menu"
           >
-            <el-menu-item index="/">
+            <el-menu-item index="/" class="nav-home">
               <el-icon><HomeFilled /></el-icon>
               <span>首页</span>
             </el-menu-item>
-            <el-sub-menu index="diagrams">
+            <el-sub-menu index="image-tools" class="nav-image-tools" popper-class="app-menu-popper">
               <template #title>
-                <el-icon><PieChart /></el-icon>
-                <span>图表生成</span>
+                <el-icon><Picture /></el-icon>
+                <span>图片工具</span>
               </template>
-              <el-menu-item index="/diagram-generator">功能模块图</el-menu-item>
-              <el-menu-item index="/usecase-diagram">用例图文档</el-menu-item>
-              <el-menu-item index="/usecase-diagram-generator">用例图生成</el-menu-item>
-              <el-menu-item index="/architecture-diagram">架构图</el-menu-item>
-              <el-menu-item index="/er-diagram">数据库E-R图</el-menu-item>
-              <el-menu-item index="/other-diagrams">其他图表</el-menu-item>
+              <el-menu-item index="/usecase-diagram-generator">
+                <el-icon><Document /></el-icon>
+                <span>角色用例图</span>
+              </el-menu-item>
+              <el-menu-item index="/image-tools/system-architecture">
+                <el-icon><Document /></el-icon>
+                <span>系统架构图</span>
+              </el-menu-item>
+              <el-menu-item index="/diagram-generator">
+                <el-icon><Document /></el-icon>
+                <span>功能模块图</span>
+              </el-menu-item>
+              <el-menu-item index="/image-tools/er-diagram">
+                <el-icon><Document /></el-icon>
+                <span>ER图</span>
+              </el-menu-item>
+              <el-menu-item index="/image-tools/sequence-diagram">
+                <el-icon><Document /></el-icon>
+                <span>时序图</span>
+              </el-menu-item>
+              <el-menu-item index="/image-tools/flow-chart">
+                <el-icon><Document /></el-icon>
+                <span>流程图</span>
+              </el-menu-item>
+              <el-menu-item index="/image-tools/class-diagram">
+                <el-icon><Document /></el-icon>
+                <span>类图</span>
+              </el-menu-item>
             </el-sub-menu>
-            <el-menu-item index="/reference-processor">
+            <el-menu-item index="/reference-processor" class="nav-reference">
               <el-icon><Document /></el-icon>
               <span>参考文献处理</span>
             </el-menu-item>
-            <el-menu-item index="/markdown-converter">
+            <el-menu-item index="/markdown-converter" class="nav-markdown">
               <el-icon><DocumentCopy /></el-icon>
               <span>Markdown转Word</span>
             </el-menu-item>
-            <el-menu-item index="/tool-links">
+            <el-menu-item index="/tool-links" class="nav-links">
               <el-icon><Link /></el-icon>
               <span>工具链接</span>
             </el-menu-item>
@@ -75,9 +96,8 @@
 import { ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import {
-  Edit,
   HomeFilled,
-  PieChart,
+  Picture,
   Document,
   DocumentCopy,
   Link
@@ -102,21 +122,21 @@ const handleMenuSelect = (index: string) => {
 <style scoped>
 .app-header {
   padding: 0;
-  height: 80px !important;
+  height: 74px !important;
   position: sticky;
   top: 0;
   z-index: 2005;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  background: rgba(252, 255, 253, 0.9);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border-bottom: 1px solid rgba(17, 132, 116, 0.14);
+  box-shadow: 0 10px 32px rgba(22, 68, 62, 0.08);
 }
 
 .header-content {
-  max-width: 1500px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 28px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -126,9 +146,10 @@ const handleMenuSelect = (index: string) => {
 .logo-section {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   cursor: pointer;
   transition: all var(--transition-base);
+  flex: 0 0 auto;
 }
 
 .logo-section:hover {
@@ -136,44 +157,36 @@ const handleMenuSelect = (index: string) => {
 }
 
 .logo-wrapper {
-  width: 44px;
-  height: 44px;
-  background: var(--gradient-primary);
-  border-radius: 14px;
+  width: 46px;
+  height: 46px;
+  background: white;
+  border: 1px solid rgba(17, 132, 116, 0.2);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px -6px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.6);
+  box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
 }
 
-.logo-wrapper::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
-  transform: rotate(45deg);
-  animation: shine 4s infinite ease-in-out;
-}
-
-.logo-icon {
-  color: white;
-  font-size: 24px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.2);
 }
 
 .app-title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 900;
   margin: 0;
-  letter-spacing: -1px;
-  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  letter-spacing: 0;
+  background: linear-gradient(105deg, #10BFA3 0%, #31D18B 26%, #FFD166 46%, #43B5FF 66%, #FF5C48 84%, #22C55E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .header-menu {
@@ -182,51 +195,104 @@ const handleMenuSelect = (index: string) => {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  margin-left: 60px;
+  margin-left: 34px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.header-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .header-menu :deep(.el-menu-item),
 .header-menu :deep(.el-sub-menu__title) {
-  height: 80px !important;
-  line-height: 80px !important;
-  padding: 0 24px !important;
-  color: #64748b !important;
-  font-weight: 700;
-  font-size: 15px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-color: var(--primary-color);
+  --nav-gradient: var(--gradient-primary);
+  --nav-soft: rgba(236, 248, 242, 0.58);
+  height: 74px !important;
+  line-height: 74px !important;
+  padding: 0 18px !important;
+  color: var(--text-secondary) !important;
+  font-weight: 750;
+  font-size: 14px;
+  transition: all var(--transition-fast);
   border-bottom: none !important;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   position: relative;
+  white-space: nowrap;
+}
+
+.header-menu :deep(.el-sub-menu .el-menu-item) {
+  height: 42px !important;
+  line-height: 42px !important;
+}
+
+.header-menu :deep(.nav-home) {
+  --nav-color: #118474;
+  --nav-gradient: var(--gradient-primary);
+  --nav-soft: rgba(236, 248, 242, 0.64);
+}
+
+.header-menu :deep(.nav-image-tools .el-sub-menu__title) {
+  --nav-color: #10BFA3;
+  --nav-gradient: linear-gradient(100deg, #10BFA3 0%, #FFD166 28%, #43B5FF 54%, #FF5C48 78%, #22C55E 100%);
+  --nav-soft: rgba(16, 191, 163, 0.08);
+}
+
+.header-menu :deep(.nav-reference) {
+  --nav-color: #1E73E8;
+  --nav-gradient: var(--gradient-sky);
+  --nav-soft: rgba(67, 181, 255, 0.12);
+}
+
+.header-menu :deep(.nav-markdown) {
+  --nav-color: #FF5C48;
+  --nav-gradient: var(--gradient-coral);
+  --nav-soft: rgba(255, 141, 107, 0.14);
+}
+
+.header-menu :deep(.nav-links) {
+  --nav-color: #22C55E;
+  --nav-gradient: var(--gradient-grass);
+  --nav-soft: rgba(163, 230, 53, 0.16);
+}
+
+.header-menu :deep(.el-sub-menu__icon-arrow) {
+  display: none;
+}
+
+.header-menu :deep(.el-menu-item .el-icon) {
+  color: var(--nav-color);
 }
 
 .header-menu :deep(.el-menu-item:hover),
 .header-menu :deep(.el-sub-menu__title:hover) {
-  color: var(--primary-color) !important;
-  background: transparent !important;
+  color: var(--nav-color) !important;
+  background: var(--nav-soft) !important;
 }
 
 .header-menu :deep(.el-menu-item.is-active),
 .header-menu :deep(.el-sub-menu.is-active .el-sub-menu__title) {
-  color: var(--primary-color) !important;
+  color: var(--color-text-strong) !important;
   border-bottom: none !important;
-  background: transparent !important;
+  background: var(--nav-soft) !important;
 }
 
-/* Redesigned Active Indicator */
 .header-menu :deep(.el-menu-item.is-active::after),
 .header-menu :deep(.el-sub-menu.is-active .el-sub-menu__title::after) {
   content: '';
   position: absolute;
-  bottom: 12px;
-  left: 24px;
-  right: 24px;
+  bottom: 10px;
+  left: 18px;
+  right: 18px;
   height: 3px;
-  background: var(--primary-color);
+  background: var(--nav-gradient);
   border-radius: 4px;
-  box-shadow: 0 2px 10px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.4);
-  animation: slideInWidth 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(22, 68, 62, 0.16);
+  animation: slideInWidth var(--transition-base);
 }
 
 @keyframes slideInWidth {
@@ -235,18 +301,18 @@ const handleMenuSelect = (index: string) => {
 }
 
 .app-main {
-  min-height: calc(100vh - 140px);
-  padding: 40px;
+  min-height: calc(100vh - 130px);
+  padding: 34px 28px;
 }
 
 .app-footer {
-  background: white;
-  color: #94a3b8;
-  height: 60px;
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--text-tertiary);
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid rgba(17, 132, 116, 0.12);
   font-size: 14px;
   font-weight: 500;
 }
@@ -254,7 +320,7 @@ const handleMenuSelect = (index: string) => {
 /* Page Transitions */
 .page-fade-enter-active,
 .page-fade-leave-active {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all var(--transition-base);
 }
 
 .page-fade-enter-from {
@@ -267,27 +333,70 @@ const handleMenuSelect = (index: string) => {
   transform: translateY(-15px);
 }
 
-@keyframes shine {
-  0% { transform: translateX(-200%) rotate(45deg); }
-  30%, 100% { transform: translateX(200%) rotate(45deg); }
-}
-
-/* Mobile Adjustments */
 @media (max-width: 1200px) {
-  .header-menu { margin-left: 20px; }
+  .header-content { padding: 0 18px; }
+  .header-menu { margin-left: 18px; }
+  .header-menu :deep(.el-menu-item),
+  .header-menu :deep(.el-sub-menu__title) {
+    padding: 0 12px !important;
+  }
 }
 
 @media (max-width: 1024px) {
   .app-title { display: none; }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0);
+@media (max-width: 768px) {
+  .app-header {
+    height: 66px !important;
   }
-  50% {
-    transform: translateY(-5px) rotate(5deg);
+
+  .logo-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-menu :deep(.el-menu-item),
+  .header-menu :deep(.el-sub-menu__title) {
+    height: 66px !important;
+    line-height: 66px !important;
+    font-size: 13px;
+  }
+
+  .app-main {
+    padding: 24px 14px;
   }
 }
-</style>
 
+:global(.app-menu-popper) {
+  overflow: hidden;
+  border: 1px solid rgba(17, 132, 116, 0.16);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+:global(.app-menu-popper .el-menu--popup) {
+  min-width: 184px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+:global(.app-menu-popper .el-menu-item) {
+  height: 40px;
+  margin: 2px 0;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-weight: 750;
+}
+
+:global(.app-menu-popper .el-menu-item:hover),
+:global(.app-menu-popper .el-menu-item.is-active) {
+  background: rgba(236, 248, 242, 0.9);
+  color: var(--color-text-strong);
+}
+</style>

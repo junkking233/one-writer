@@ -109,13 +109,13 @@ const toggleWebFullScreen = () => {
 }
 
 .secondary {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: var(--gradient-sun);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.secondary-bg {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+.el-button.secondary-bg {
+  background: var(--gradient-sun);
 }
 
 .page-title {

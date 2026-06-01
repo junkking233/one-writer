@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { PieChart, Link } from '@element-plus/icons-vue'
+import { Link } from '@element-plus/icons-vue'
 
 const openInNewTab = () => {
   window.open('https://www.mermaidchart.com/play', '_blank')
